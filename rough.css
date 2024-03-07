@@ -196,3 +196,9 @@ body {
       background-color: gold;
       color: black;
     }
+    .card
+    {
+      height: 100px;
+      color: aliceblue;
+      border: 2px black solid;
+    }
