@@ -3,6 +3,8 @@ body {
     padding: 0;
     /* font-family: Arial, sans-serif; */
     font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+    color: white;
   }
   
   header {
@@ -196,9 +198,4 @@ body {
       background-color: gold;
       color: black;
     }
-    .card
-    {
-      height: 100px;
-      color: aliceblue;
-      border: 2px black solid;
-    }
+ 
