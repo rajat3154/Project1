@@ -73,33 +73,34 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-          <table class="table table-borderless">
+    <div class="row" style="margin-top:10px;border:2px dotted brown;">
+
+          <table class="table table-border">
             <tr>
                 <td>
-                    <h2 style="color:darkblue;font-weight:700">Veg</h2>
+                    <h2 style="color:maroon;font-weight:700">Veg</h2>
                     <p>
                         <h4>Here you will find many popular & authentic veg recipes from Indian cuisine like 
                             biryani, pulao, palak paneer, aloo gobi, samosa, malai kofta and naan, to name a few.</h4>
                     </p>
                 </td>
                 <td>
-                    <img src="~/Image/Card1.jpg" style=" border-radius:4px 4px;" height="300" width="500" />
+                    <img src="veg.jpg" style=" border-radius:4px 4px;" height="300" width="500" />
                 </td>
             </tr>
           </table>
     </div>
-            <div class="row" style="margin-top:10px;border-top:1px dotted skyblue">
-                  <table class="table table-borderless">
+            <div class="row" style="margin-top:10px;border-top:2px dotted maroon">
+                  <table class="table table-border">
                     <tr>
                         <td>
-                            <img src="~/Image/Card2.jpg" style=" border-radius:4px 4px;" height="300" width="550" />
+                            <img src="non veg.jpg" style=" border-radius:4px 4px;" height="300" width="550" />
                         </td>
                         <td>&nbsp;<br /></td>
                         <td>&nbsp;<br /></td>
                         <td>&nbsp;<br /></td>
                         <td >
-                            <h2 style="color:darkblue;font-weight:700">Non-Veg</h2>
+                            <h2 style="color:maroon;font-weight:700">Non-Veg</h2>
                             <p>
                                 <h4>Indian non veg recipes includes chicken starters, fish starters, 
                                     chicken and mutton biryani recipes, chicken 65, chili chicken, biryani and many more...</h4>
@@ -108,19 +109,20 @@
                     </tr>
                   </table>
             </div>
-
-      <div class="row" style="margin-top:10px;border-top:1px dotted skyblue">
+            
+            <div class="row" style="margin-top:10px;border:2px dotted brown;">
         <table class="table table-borderless">
           <tr>
               <td>
-                  <h2 style="color:darkblue;font-weight:700">Beverage</h2>
+               
+                  <h2 style="color:maroon;font-weight:700">Beverage</h2>
                   <p>
                       <h4>any potable liquid, especially one other than water, as tea, coffee, beer, or milk: 
                           The price of the meal includes a beverage.</h4>
                   </p>
               </td>
               <td>
-                  <img src="~/Image/Card3.jpg" style=" border-radius:4px 4px;" height="300" width="500" />
+                  <img src="beve.jpg" style=" border-radius:4px 4px;" height="400" width="500" />
               </td>
           </tr>
         </table>
@@ -128,14 +130,13 @@
 </div>
     </body>
   </section>
-
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </body>
 </html>
 <section class="py-5" id="contactus">
   <div class="container-xxl py-5">
     <div class="col-12 d-flex flex-column text-center justify-content-center">
-      <h2 class="text-white">CONTACT US</h2>
+      <h2 class="text-white" style="background-color: brown;" ><marquee>CONTACT US</marquee></h2>
     </div>
     <div class="row pt-4 mt-5">
       <div class="col-12">
@@ -143,24 +144,64 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Name*" required>
-                <label for="floatingInput">Enter Name*</label>
+                <label for="floatingInput">Enter Name:</label>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Name" required>
+              
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingEmail" placeholder="Enter Email*" required>
-                <label for="floatingEmail">Enter Email*</label>
+                <label for="floatingEmail">Enter Email:</label>
+                <input type="email" class="form-control" id="floatingEmail" placeholder="Enter Email" required>
+            
               </div>
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="floatingPassword" placeholder="Enter Phone*" required>
-                <label for="floatingPassword">Enter Phone*</label>
-              </div>
+                <label for="floatingEmail">Enter phone:</label>
+                <input type="number" class="form-control" id="floatingPassword" placeholder="Enter Phone" required>
+            </div>
             </div>
             <div class="form-floating col-lg-6">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingMessage" style="height: 205px" required></textarea>
-              <label for="floatingMessage" class="px-4">Enter Message*</label>
+              <label for="floatingMessage" class="px-4">Enter Message:</label>
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingMessage" style="height: 140px" required></textarea>
+   
             </div>
             <div class="col-12 mt-5 d-flex justify-content-center">
-              <button class="btn btn-lg btn-outline-light">SEND MESSAGE</button>
+              <style>
+                .button {
+                  position: relative;
+                  background-color: maroon;
+                  border: none;
+                  font-size: 28px;
+                  color: #FFFFFF;
+                  padding: 20px;
+                  width: 200px;
+                  text-align: center;
+                  transition-duration: 0.4s;
+                  text-decoration: none;
+                  overflow: hidden;
+                  cursor: pointer;
+                }
+                
+                .button:after {
+                  content: "";
+                  background: maroon;
+                  display: block;
+                  position: absolute;
+                  padding-top: 300%;
+                  padding-left: 350%;
+                  margin-left: -20px;
+                  margin-top: -120%;
+                  opacity: 0;
+                  transition: all 0.8s
+                }
+                .button:active:after {
+                  padding: 0;
+                  margin: 0;
+                  opacity: 1;
+                  transition: 0s
+                }
+                </style>
+                </head>
+                <body>
+                <button class="button">SEND</button>
             </div>
           </div>
 
