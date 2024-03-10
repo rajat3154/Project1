@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Recommendation System</title>
+  <link rel="stylesheet" href="index.css">
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+</head>
+<body>
+      
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Welcome to Foodify</h1>
+    <p class="lead">Get personalized food recommendations tailored just for you!</p>
+  </div>
+</div>
+<body>
+  <header class="bg-dark fixed-top">
+    <nav class="container-xxl navbar navbar-expand-lg py-3 bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-3" href="#">RECIPE RECOMMANDATION</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#home">HOME</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#login">LOGIN</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#about">ABOUT</a>
+            </li>
+
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#contactus">CONTACT US</a>
+            </li>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center mb-4">Enter Your Preferences</h5>
+          <form id="preferencesForm">
+            <div class="form-group">
+              <label for="ingredient">Favorite dish:</label>
+              <input type="text" class="form-control" id="ingredient" placeholder="e.g.paneer chilli,veg pulav ,fish">
+            </div>
+            <button  type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

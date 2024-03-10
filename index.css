@@ -1,0 +1,32 @@
+body {
+    background: radial-gradient(circle, #ffefd5, #ffdab9, #ffbfa3);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .jumbotron {
+    background-image: url('https://source.unsplash.com/1600x900/?food');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  .jumbotron h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  .jumbotron p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  .card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
