@@ -1,37 +1,47 @@
 body {
-    background: radial-gradient(circle, #ffefd5, #ffdab9, #ffbfa3);
+background: radial-gradient(circle, #ffefd5, #ffdab9, #ffbfa3);
+   
     font-family: 'arial', sans-serif;
     margin: 0;
     padding: 0;
-  
-  }
-  .jumbotron {
+
+}
+
+.jumbotron {
     background-image: url('https://source.unsplash.com/1600x900/?food');
     background-size: cover;
     background-position: center;
     color: #fff;
     text-align: center;
+    margin-bottom: 0;
     padding: 100px 0;
-  }
-  .jumbotron h1 {
+    
+}
+
+.jumbotron h1 {
     font-size: 4rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  .jumbotron p {
+}
+
+.jumbotron p {
     font-size: 1.5rem;
-    margin-bottom: 30px;
-  }
-  .card {
+    margin-bottom: 20px;
+}
+
+
+.card {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-  }
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-5px);
-  }
-  .button {
+}
+
+.button {
     display: flex;
     height: 50px;
     padding: 0;
@@ -46,13 +56,13 @@ body {
     cursor: pointer;
 }
 
-    .button:hover {
-        background: #2E86C1;
-    }
+.button:hover {
+    background: #2E86C1;
+}
 
-    .button:active {
-        background: #006e58;
-    }
+.button:active {
+    background: #006e58;
+}
 
 .button__text,
 .button__icon {
@@ -76,10 +86,10 @@ body {
     border-block-color: #ABB2B9;
 }
 
-    #btnmenu:hover {
-        background-color: #2C3E50;
-        color: white;
-    }
+#btnmenu:hover {
+    background-color: #2C3E50;
+    color: white;
+}
 
 #actlink {
     background-color: #2E86C1;
@@ -89,9 +99,9 @@ body {
     border-radius: 3px 4px;
 }
 
-    #actlink:hover {
-        background-color: #2471A3;
-    }
+#actlink:hover {
+    background-color: #2471A3;
+}
 
 #listname {
     font-size: 30px;
@@ -99,22 +109,22 @@ body {
     color: #F1C40F;
 }
 
-    #listname:hover {
-        color: white;
-    }*/
+#listname:hover {
+    color: white;
+}
 
-a {
+*/ a {
     color: #fafafb;
     margin-bottom: 10px;
     text-decoration: none;
     font-weight: 600;
 }
 
-    a:hover {
-        color: white;
-        margin-bottom: 10px;
-        text-decoration: none;
-    }
+a:hover {
+    color: white;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
 
 #actlink {
     background: #3498DB;
@@ -128,14 +138,14 @@ a {
     color: azure;
 }
 
-    .btn:hover {
-        background: #2E86C1;
-        color: white;
-    }
+.btn:hover {
+    background: #2E86C1;
+    color: white;
+}
 
-    .btn:active {
-        background: #006e58;
-    }
+.btn:active {
+    background: #006e58;
+}
 
 .card-title {
     color: #8E44AD;
@@ -150,10 +160,7 @@ a {
     height: 225px;
 }
 
-img {
-    height: 100px;
-    width: 100%;
-}
+
 
 #actlink {
     background: #3498DB;
@@ -163,3 +170,34 @@ img {
     color: #f8f9fa;
     text-decoration: none;
 }
+ .navbar {
+     margin-bottom: 0 !important;
+ }
+
+ .navbar-brand {
+     margin-right: auto;
+ }
+
+ .navbar-nav {
+     margin-left: auto;
+ }
+
+ .navbar-nav .nav-item {
+     margin-right: 10px;
+ }
+ .navbar.navbar-expand-lg.navbar-dark.bg-dark {
+     background-color: rgb(66, 3, 20) !important;
+    
+ }
+ img
+ {
+    height: 220px;
+    width: 180px;
+    padding: 2px;
+ }
+ .row
+ {
+    display: flex;
+    flex-wrap: wrap;
+    height: 250px;
+ }
