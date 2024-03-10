@@ -4,6 +4,7 @@ background: radial-gradient(circle, #ffefd5, #ffdab9, #ffbfa3);
     font-family: 'arial', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 
 }
 
@@ -200,4 +201,19 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     height: 250px;
+ }
+ .main-container {
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+
+ header,
+ footer {
+     flex-shrink: 0;
+ }
+
+ .content {
+     flex-grow: 1;
+     overflow-x: hidden;
  }
