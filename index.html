@@ -2,231 +2,458 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Recommendation System</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    #nav-link:hover {
-      width: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommendation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            height: 100px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            transition: background-color 0.3s ease;
+            font-size: 1.4rem;
+            margin-right: 30px;
+        }
+
+        .nav-link:hover {
+            background-color: #173aff;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+        }
+
+        .search-button {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .search-button:hover {
+            background-color: #0b2aff;
+        }
+
+        .hero-section {
+            background-image: url('https://source.unsplash.com/1600x900/?food');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 20px;
+            color: #000;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .recipe-category {
+            margin-bottom: 30px;
+        }
+
+        .category-heading {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .recipe-cards-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            
+        }
+
+        .recipe-card {
+    flex: 0 0 auto;
+    width: 300px; /* Increased card width */
+    height: 450px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: #000 3px solid;
+}
+
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            /* Adjusted image height */
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            position: relative;
+            margin-top: 10px;
+            z-index: 1;
+        }
+
+        .recipe-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .recipe-card h3 {
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .recipe-card p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .recipe-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            z-index: 2;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .recipe-card:hover .recipe-details {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .view-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .view-more a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .view-more a:hover {
+            color: #173aff;
+        }
+
+        .arrow-icon {
+            margin-left: 10px;
+            transform: translateY(1px);
+        }
+
+       .view-recipe-btn {
+    background-color: #173aff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Increased padding */
+    font-size: 1.2rem; /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+        .view-recipe-btn:hover {
+            background-color: #0b2aff;
+        }
+        .recipe-category
+        {
+            margin-left: 35px;
+        }
+    </style>
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-brand">Recipe Recommendation</div>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search for recipes...">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Recipes</a>
+            <a href="#" class="nav-link">About</a>
+            <!-- <a href="#" class="nav-link">Contact</a> -->
+            <a href="signup.html" class="nav-link">Signup</a>
+        </div>
+    </nav>
 
-  <div class="jumbotron" style="margin-bottom:0%">
-    <div class="container">
-      <h1 class="display-3">COOKING MADE EASY</h1>
-      <p class="lead">say good bye to long and frustrating food blogs and recipe videos.
-        find your favourite dish and prepare in minutes.
-      </p>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Recipe Recommendation</h1>
+            <p>Discover delicious recipes for every occasion!</p>
+        </div>
     </div>
-  </div>
 
-  <body>
-    <header class="bg-dark fixed-centre">
-      <nav class="container-xxl navbar navbar-expand-lg py-3 bg-dark navbar-dark" id="navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold fs-3" href="#">RECIPE RECOMMANDATION</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#home">HOME</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#about">ABOUT</a>
-              </li>
-
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#contactus">CONTACT US</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#login">LOGIN</a>
-              </li>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <section class="py-5" id="home">
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-center mb-4">WHAT ARE YOU LOOKING FOR?</h5>
-                <form id="preferencesForm">
-                  <div class="form-group">
-                    <label for="ingredient">Favorite dish:</label>
-                    <input type="text" class="form-control" id="ingredient"
-                      placeholder="e.g.paneer chilli,veg pulav ,fish">
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
-                </form>
-              </div>
+    <div class="content">
+        <div class="recipe-category">
+            <h2 class="category-heading">Veg Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
+                    </div>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
+                    </div>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
+                    </div>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <!-- Add more recipe cards with image boxes -->
             </div>
-          </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
+            </div>
         </div>
-      </div>
 
-      <head>
-
-        <section class="py-5" id="about">
-      </head>
-
-      <body>
-        <div class="container">
-          <div class="row" style="margin-top:10px;border:2px dotted brown;">
-
-            <table class="table table-border">
-              <tr>
-                <td>
-                  <br>
-                  <h2 style="color:maroon;font-weight:700">Veg</h2>
-                  <p>
-                  <h4>Here you will find many popular & authentic veg recipes from Indian cuisine like
-                    biryani, pulao, palak paneer, aloo gobi, samosa, malai kofta and naan, to name a few.</h4>
-                  </p>
-                </td>
-                <td>
-                  <img src="veg.jpg" style=" border-radius:4px 4px;" height="100%" width="800" />
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="row" style=" margin-top:10px;margin: bottom 10px;border:2px dotted maroon">
-            <table class="table table-border">
-              <tr>
-                <td>
-                  <img src="non veg.jpg" style=" border-radius:4px 4px;" height="300" width="550" />
-                </td>
-
-                <td>
-                  <br><br>
-                  <h2 style="color:maroon;font-weight:700">Non-Veg</h2>
-                  <p>
-                  <h4>Indian non veg recipes includes chicken starters, fish starters,
-                    chicken and mutton biryani recipes, chicken 65, chili chicken, biryani and many more...</h4>
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="row" style="margin-top:10px;border:2px dotted brown;">
-            <table class="table table-borderless">
-              <tr>
-                <td>
-                  <br>
-                  <h2 style="color:maroon;font-weight:700">Beverage</h2>
-                  <p>
-                  <h4>any potable liquid, especially one other than water, as tea, coffee, beer, or milk:
-                    The price of the meal includes a beverage.</h4>
-                  </p>
-                </td>
-                <td>
-                  <img src="beve.jpg" style=" border-radius:4px 4px;" height="400" width="500" />
-                </td>
-              </tr>
-            </table>
-          </div>
+        <div class="recipe-category">
+            <h2 class="category-heading">Non-Veg Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
+            </div>
         </div>
-      </body>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  </body>
+        <div class="recipe-category">
+            <h2 class="category-heading">Beverages</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
+                    </div>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>
-<section class="py-5" id="contactus">
-  <div class="container-xxl py-5">
-    <div class="col-12 d-flex flex-column text-center justify-content-center">
-      <h2 class="text-white" style="background-color: brown; width: 100%; padding: left 0px; ">
-        <marquee>CONTACT US</marquee>
-      </h2>
-    </div>
-    <div class="row pt-4 mt-5" style="padding-left: 30px; padding-right:30px">
-      <div class="col-12">
-        <form action="#" method="POST">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6">
-              <div class="form-floating mb-3">
-                <label for="floatingInput">Enter Name:</label>
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Name" required>
-
-              </div>
-              <div class="form-floating mb-3">
-                <label for="floatingEmail">Enter Email:</label>
-                <input type="email" class="form-control" id="floatingEmail" placeholder="Enter Email" required>
-
-              </div>
-              <div class="form-floating mb-3">
-                <label for="floatingEmail">Enter phone:</label>
-                <input type="number" class="form-control" id="floatingPassword" placeholder="Enter Phone" required>
-              </div>
-            </div>
-            <div class="form-floating col-lg-6">
-              <label for="floatingMessage" class="px-4">Enter Message:</label>
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingMessage"
-                style="height: 140px" required></textarea>
-
-            </div>
-            <div class="col-12 mt-5 d-flex justify-content-center">
-              <style>
-                .button {
-                  position: relative;
-                  background-color: maroon;
-                  border: none;
-                  font-size: 28px;
-                  color: #FFFFFF;
-                  padding: 20px;
-                  width: 200px;
-                  text-align: center;
-                  transition-duration: 0.4s;
-                  text-decoration: none;
-                  overflow: hidden;
-                  cursor: pointer;
-                }
-
-                .button:after {
-                  content: "";
-                  background: maroon;
-                  display: block;
-                  position: absolute;
-                  padding-top: 300%;
-                  padding-left: 350%;
-                  margin-left: -20px;
-                  margin-top: -120%;
-                  opacity: 0;
-                  transition: all 0.8s
-                }
-
-                .button:active:after {
-                  padding: 0;
-                  margin: 0;
-                  opacity: 1;
-                  transition: 0s
-                }
-              </style>
-              </head>
-
-              <body>
-                <button class="button">SEND</button>
-            </div>
-          </div>
-
-
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-</body>
