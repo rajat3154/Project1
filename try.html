@@ -83,42 +83,13 @@
             background-color: #0b2aff;
         }
 
-        .hero-section {
-            background-image: url('https://source.unsplash.com/1600x900/?food');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: calc(100vh - 100px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            line-height: 1.6;
-        }
-
         .content {
-            padding: 20px;
+            padding-top: 120px;
+            /* Added padding to create space between navbar and content */
+            padding-left: 20px;
+            padding-right: 20px;
             color: #000;
             text-align: center;
-            margin-top: 30px;
             margin-bottom: 100px;
             /* Added margin bottom to prevent content from going under footer */
         }
@@ -323,155 +294,181 @@
             <button class="search-button">Search</button>
         </div>
         <div class="navbar-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="recipes.html" class="nav-link">Recipes</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="profile.html" class="nav-link">Profile</a>
-            <a href="signup.html" class="nav-link">Signup</a>
+            <a href="#." class="nav-link" onclick="showCategory('all')">All</a>
+            <a href="#" class="nav-link" onclick="showCategory('italian')">Italian</a>
+            <a href="#" class="nav-link" onclick="showCategory('indian')">Indian</a>
+            <a href="#" class="nav-link" onclick="showCategory('chinese')">Chinese</a>
+            <a href="#" class="nav-link">Signup</a>
         </div>
     </nav>
 
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to Recipe Recommendation</h1>
-            <p>Discover delicious recipes for every occasion!</p>
+    <div class="content">
+        <div id="indian" class="recipe-category">
+            <h2 class="category-heading">Italian Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        <div id="italian" class="recipe-category">
+            <h2 class="category-heading">Italian Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        <div id="indian" class="recipe-category" style="display: none;">
+            <h2 class="category-heading">Indian Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        <div id="chinese" class="recipe-category" style="display: none;">
+            <h2 class="category-heading">Chinese Recipes</h2>
+            <div class="recipe-cards-container">
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="content">
-        <div class="recipe-category">
-            <h2 class="category-heading">Veg Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
-                </div>
-                <!-- Add more recipe cards with image boxes -->
-            </div>
-        </div>
-        <div class="recipe-category">
-            <h2 class="category-heading"> Non Veg Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
-                </div>
-                <!-- Add more recipe cards with image boxes -->
-            </div>
-        </div>
-        <div class="recipe-category">
-            <h2 class="category-heading">Beverages</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
-                </div>
-                <!-- Add more recipe cards with image boxes -->
-            </div>
-        </div>
+    <footer class="footer">
+        <p>&copy; 2024 Recipe Recommendation. All Rights Reserved.</p>
+    </footer>
 
-        <footer class="footer">
-            <p>&copy; 2024 Recipe Recommendation. All Rights Reserved.</p>
-        </footer>
-
-
-        <script>
-            // Sample JavaScript function
-            function searchRecipes() {
-                // Your search logic here
-                alert("Searching for recipes...");
-            }
-        </script>
+    <script>
+        function showCategory(category) {
+            const categories = document.querySelectorAll('.recipe-category');
+            categories.forEach((element) => {
+                if (element.id === category) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

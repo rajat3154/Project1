@@ -11,7 +11,6 @@
             padding: 0;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            background-color: #f8f8f8;
         }
 
         .navbar {
@@ -118,45 +117,41 @@
             padding: 20px;
             color: #000;
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 100px;
-            /* Added margin bottom to prevent content from going under footer */
+            margin-top: 100px;
         }
 
         .recipe-category {
-            margin-bottom: 40px;
-            margin-top: 20px;
-            color: #fff;
+            margin-bottom: 30px;
         }
 
         .category-heading {
             font-size: 2rem;
-            margin-bottom: 30px;
-            color: black;
+            margin-bottom: 10px;
         }
 
         .recipe-cards-container {
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
             overflow-x: auto;
             padding-bottom: 20px;
+
         }
 
         .recipe-card {
-            flex: 0 0 calc(50% - 20px);
-            max-width: 300px;
+            flex: 0 0 auto;
+            width: 300px;
+            /* Increased card width */
             height: 450px;
-            background-color: #000;
+            background-color: #f8f8f8;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
-            color: #fff;
-            border: #fff 3px solid;
+            border: #000 3px solid;
         }
+
 
         .recipe-card:hover {
             transform: translateY(-10px);
@@ -165,13 +160,14 @@
         .recipe-image {
             width: 100%;
             height: 200px;
+            /* Adjusted image height */
             border-radius: 10px;
             background-size: cover;
             background-position: center;
             margin-bottom: 10px;
             position: relative;
-            margin-top: 5px;
-
+            margin-top: 10px;
+            z-index: 1;
         }
 
         .recipe-image:before {
@@ -216,28 +212,6 @@
             background-color: rgba(255, 255, 255, 0.7);
         }
 
-        .view-recipe-btn {
-            background-color: #173aff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 1px 0px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            margin-top: 5px;
-            display: inline-block;
-        }
-
-        .view-recipe-btn:hover {
-            background-color: #000000;
-        }
-
-        .recipe-category {
-            margin-left: 35px;
-        }
-
         .view-more {
             display: flex;
             justify-content: center;
@@ -262,55 +236,28 @@
             transform: translateY(1px);
         }
 
-        .view-more-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .view-recipe-btn {
             background-color: #173aff;
             color: #fff;
             border: none;
-            border-radius: 50%;
-            padding: 20px;
-            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: 10px 20px;
+            /* Increased padding */
+            font-size: 1.2rem;
+            /* Increased font size */
             cursor: pointer;
             transition: background-color 0.3s ease;
             text-decoration: none;
-            margin-left: auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            width: 60px;
-            height: 60px;
+            margin-top: 5px;
+            display: inline-block;
         }
 
-        .view-more-btn:hover {
-            background-color: #000000;
+        .view-recipe-btn:hover {
+            background-color: #0b2aff;
         }
 
-        .arrow-icon {
-            color: #fff;
-            font-size: 1.5rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.3s ease;
-        }
-
-        .view-more-btn:hover .arrow-icon {
-            transform: translate(-50%, -50%) rotate(90deg);
-        }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
+        .recipe-category {
+            margin-left: 35px;
         }
     </style>
 </head>
@@ -324,8 +271,9 @@
         </div>
         <div class="navbar-links">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="recipes.html" class="nav-link">Recipes</a>
-            <a href="about.html" class="nav-link">About</a>
+            <a href="#" class="nav-link">Recipes</a>
+            <a href="#" class="nav-link">About</a>
+            <!-- <a href="#" class="nav-link">Contact</a> -->
             <a href="profile.html" class="nav-link">Profile</a>
             <a href="signup.html" class="nav-link">Signup</a>
         </div>
@@ -368,55 +316,89 @@
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
+                    </div>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?salad');">
+                    </div>
+                    <h3>Caprese Salad</h3>
+                    <p>Simple and refreshing salad with tomatoes, mozzarella cheese, basil, and balsamic glaze.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <!-- Add more recipe cards with image boxes -->
             </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
+            </div>
         </div>
+
         <div class="recipe-category">
-            <h2 class="category-heading"> Non Veg Recipes</h2>
+            <h2 class="category-heading">Non-Veg Recipes</h2>
             <div class="recipe-cards-container">
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <!-- Add more recipe cards with image boxes -->
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
             </div>
         </div>
         <div class="recipe-category">
@@ -424,54 +406,59 @@
             <div class="recipe-cards-container">
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?chicken');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <p>Creamy pasta dish with tender chicken, Alfredo sauce, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
                 <div class="recipe-card">
                     <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
                     </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon">View More</span></a>
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <!-- Add more recipe cards with image boxes -->
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?seafood');">
+                    </div>
+                    <h3>Seafood Paella</h3>
+                    <p>Traditional Spanish paella with a variety of seafood, saffron, and flavorful rice.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">View More<span class="arrow-icon">&#8594;</span></a>
             </div>
         </div>
+    </div>
 
-        <footer class="footer">
-            <p>&copy; 2024 Recipe Recommendation. All Rights Reserved.</p>
-        </footer>
-
-
-        <script>
-            // Sample JavaScript function
-            function searchRecipes() {
-                // Your search logic here
-                alert("Searching for recipes...");
-            }
-        </script>
 </body>
 
 </html>

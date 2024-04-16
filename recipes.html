@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .category-buttons {
+            margin-bottom: 20px;
+        }
+
+        .category-btn {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .category-btn:hover {
+            background-color: #000;
+        }
+
+        .category-container {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .category-container.show {
+            display: block;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .recipe-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .recipe-card {
+            flex: 0 0 calc(33.3333% - 20px);
+            max-width: calc(33.3333% - 20px);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .recipe-content {
+            padding: 20px;
+        }
+
+        .recipe-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .recipe-description {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .view-recipe-btn {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-recipe-btn:hover {
+            background-color: #000;
+        }
+
+        .recipe-card {
+            flex: 0 0 calc(50% - 20px);
+            max-width: 300px;
+            height: 450px;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            color: #fff;
+            border: #fff 3px solid;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            position: relative;
+            margin-top: 5px;
+
+        }
+
+        .recipe-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .recipe-card h3 {
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .recipe-card p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .recipe-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            z-index: 2;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .recipe-card:hover .recipe-details {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .view-recipe-btn {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 1px 0px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .view-recipe-btn:hover {
+            background-color: #000000;
+        }
+
+        .recipe-category {
+            margin-left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="category-buttons">
+            <button class="category-btn" data-category="indian">Indian Recipes</button>
+            <button class="category-btn" data-category="italian">Italian Recipes</button>
+            <!-- Add more category buttons as needed -->
+        </div>
+
+        <div class="category-container" id="indian-recipes">
+            <h2 class="category-title">Indian Recipes</h2>
+            <div class="recipe-cards">
+                <!-- Indian Recipe Cards -->
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?indianfood');"></div>
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Spicy Curry</h3>
+                        <p class="recipe-description">A delicious and flavorful curry dish.</p>
+                        <a href="#" class="view-recipe-btn">View Recipe</a>
+                    </div>
+                </div>
+                <!-- Add more Indian recipe cards here -->
+            </div>
+        </div>
+
+        <div class="category-container" id="italian-recipes">
+            <h2 class="category-title">Italian Recipes</h2>
+            <div class="recipe-cards">
+                <!-- Italian Recipe Cards -->
+                <div class="recipe-card">
+                    <div class="recipe-image"
+                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
+                    </div>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
+                    <a href="#" class="view-recipe-btn">View Recipe</a>
+                </div>
+                <!-- Add more Italian recipe cards here -->
+            </div>
+        </div>
+
+        <!-- Add more categories and recipe cards as needed -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+                    const categoryContainer = document.getElementById(`${category}-recipes`);
+                    if (categoryContainer) {
+                        document.querySelectorAll('.category-container').forEach(container => {
+                            container.classList.remove('show');
+                        });
+                        categoryContainer.classList.add('show');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

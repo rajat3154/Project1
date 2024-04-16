@@ -11,75 +11,6 @@
             font-family: sans-serif;
         }
 
-        .navbar {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            height: 60px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 50px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            padding: 15px;
-            transition: background-color 0.3s ease;
-            font-size: 1.4rem;
-            margin-right: 30px;
-        }
-
-        .nav-link:hover {
-            background-color: #173aff;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            height: 100px;
-        }
-
-        .search-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 1.2rem;
-        }
-
-        .search-button {
-            background-color: #173aff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .search-button:hover {
-            background-color: #0b2aff;
-        }
-
         .background {
             /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
             background-image: url('https://source.unsplash.com/1600x900/?food');
@@ -175,24 +106,11 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-brand">Recipe Recommendation</div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search for recipes...">
-            <button class="search-button">Search</button>
-        </div>
-        <div class="navbar-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Recipes</a>
-            <a href="#" class="nav-link">About</a>
-            <!-- <a href="#" class="nav-link">Contact</a> -->
-            <a href="signup.html" class="nav-link">Signup</a>
-        </div>
-    </nav>
+
     <div class="background"></div>
     <div class="login-container">
         <h1>Create an Account</h1>
-        <form>
+        <form id="signupForm" action="signin.html" method="post">
             <label for="fullname">Full Name:</label>
             <input type="text" id="fullname" name="fullname" placeholder="Enter Full Name" required>
             <label for="email">Email:</label>
@@ -222,6 +140,16 @@
             Already have an account? <a href="signin.html">Sign In</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Perform form validation and submit if valid
+            // For simplicity, assume validation passes and submit the form
+            this.submit();
+        });
+
+    </script>
 </body>
 
 </html>
