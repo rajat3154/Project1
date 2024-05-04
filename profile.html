@@ -195,11 +195,102 @@
         .file-input-button:hover {
             background-color: #0b2aff;
         }
+         .navbar {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            height: 70px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            margin-right: 5px;
+           
+        }
+
+        .nav-link:hover {
+            background-color: #0b2aff;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            height: 70px;
+          
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            /* Slightly reduced font size */
+        }
+
+        .search-button {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            /* Reduced padding */
+            margin-left: 5px;
+            /* Reduced margin */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Added color transition */
+            font-size: 1rem;
+            /* Slightly reduced font size */
+        }
+
+        .search-button:hover {
+            background-color: #0b2aff;
+            color: #fff;
+            /* Ensure color change on hover */
+        }
+
     </style>
 </head>
 
 <body>
-
+<nav class="navbar">
+    <div class="navbar-brand">Recipe Recommendation</div>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search for recipes...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="recipes.html" class="nav-link">Recipes</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="signup.html" class="nav-link">Signup</a>
+    </div>
+</nav>
 
     <main class="profile-page">
         <div class="card user-info">

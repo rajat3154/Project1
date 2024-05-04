@@ -14,91 +14,106 @@
             background-color: #f8f8f8;
         }
 
-       .navbar {
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px; /* Reduced padding */
-    height: 70px; /* Reduced height */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            height: 70px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-.navbar-brand {
-    font-size: 1.5rem; /* Slightly reduced font size */
-    font-weight: bold;
-}
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-.navbar-links {
-    display: flex;
-    gap: 30px; /* Reduced gap */
-}
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+        }
 
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px; /* Reduced padding */
-    transition: background-color 0.3s ease;
-    font-size: 1.2rem; /* Slightly reduced font size */
-    margin-right: 5px; /* Reduced margin */
-}
-.nav-link:hover{
-    background-color: #0b2aff;
-}
-.search-bar {
-    display: flex;
-    align-items: center;
-    height: 70px; /* Reduced height */
-}
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            margin-right: 5px;
+           
+        }
 
-.search-input {
-    width: 100%;
-    max-width: 300px; /* Reduced max-width */
-    padding: 8px; /* Reduced padding */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1rem; /* Slightly reduced font size */
-}
+        .nav-link:hover {
+            background-color: #0b2aff;
+        }
 
-.search-button {
-    background-color: #173aff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px; /* Reduced padding */
-    margin-left: 5px; /* Reduced margin */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
-    font-size: 1rem; /* Slightly reduced font size */
-}
+        .search-bar {
+            display: flex;
+            align-items: center;
+            height: 70px;
+          
+        }
 
-.search-button:hover {
-    background-color: #0b2aff;
-    color: #fff; /* Ensure color change on hover */
-}
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            /* Slightly reduced font size */
+        }
+
+        .search-button {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            /* Reduced padding */
+            margin-left: 5px;
+            /* Reduced margin */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Added color transition */
+            font-size: 1rem;
+            /* Slightly reduced font size */
+        }
+
+        .search-button:hover {
+            background-color: #0b2aff;
+            color: #fff;
+            /* Ensure color change on hover */
+        }
 
 
-      .hero-section {
-    background-image: url('https://source.unsplash.com/1600x900/?food');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: calc(100vh - 100px); /* Adjusted height to fit between navbar and footer */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    margin-top: 70px; /* Added margin top to align with navbar */
-    margin-bottom: 60px; /* Adjusted margin bottom to align with footer */
-    position: relative; /* Added position to enable z-index */
-    z-index: 0; /* Set a lower z-index to be behind navbar and footer */
-}
+        .hero-section {
+            background-image: url('https://source.unsplash.com/1600x900/?food');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: calc(100vh - 100px);
+            /* Adjusted height to fit between navbar and footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            margin-top: 70px;
+            /* Added margin top to align with navbar */
+            margin-bottom: 60px;
+            /* Adjusted margin bottom to align with footer */
+            position: relative;
+            /* Added position to enable z-index */
+            z-index: 0;
+            /* Set a lower z-index to be behind navbar and footer */
+        }
 
 
         .hero-content {
@@ -118,13 +133,14 @@
             line-height: 1.6;
         }
 
-      .content {
-    padding: 20px;
-    color: #000;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 100px; /* Adjusted margin bottom to provide space for footer */
-}
+        .content {
+            padding: 20px;
+            color: #000;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 100px;
+            /* Adjusted margin bottom to provide space for footer */
+        }
 
         .recipe-category {
             margin-bottom: 40px;
@@ -150,15 +166,15 @@
             flex: 0 0 calc(50% - 20px);
             max-width: 270px;
             height: 450px;
-            background-color: #000;
+            background-color: #ffffff;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
-            color: #fff;
-            border: #fff 3px solid;
+            color: #000000;
+            border: #000000 1px solid;
         }
 
         .recipe-card:hover {
@@ -219,22 +235,22 @@
             background-color: rgba(255, 255, 255, 0.7);
         }
 
-      .view-recipe-btn {
-    background-color: #173aff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px; /* Adjusted padding for better button size */
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
+        .view-recipe-btn {
+            background-color: #173aff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-.view-recipe-btn:hover {
-    background-color: #0b2aff;
-}
+        .view-recipe-btn:hover {
+            background-color: #0b2aff;
+        }
 
         .recipe-category {
             margin-left: 35px;
@@ -264,53 +280,54 @@
             transform: translateY(1px);
         }
 
-       .view-more-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   background-color: #0b2aff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    margin-left: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    width: 60px;
-    height: 60px;
-}
+        .view-more-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0b2aff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-left: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+        }
 
-.view-more-btn:hover {
-    background-color: #000000;
-}
+        .view-more-btn:hover {
+            background-color: #000000;
+        }
 
-/* Add animation to the arrow icon */
-.arrow-icon {
-    margin-left: 10px;
-    transform: translateY(1px);
-    transition: transform 0.3s ease; /* Add transition for smooth animation */
-}
+        /* Add animation to the arrow icon */
+        .arrow-icon {
+            margin-left: 10px;
+            transform: translateY(1px);
+            transition: transform 0.3s ease;
+            /* Add transition for smooth animation */
+        }
 
-/* Rotate the arrow icon on hover */
-.view-more-btn:hover .arrow-icon {
-    transform: translate(-50%, -50%) rotate(90deg);
-}
+        /* Rotate the arrow icon on hover */
+        .view-more-btn:hover .arrow-icon {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
 
 
 
-.btn-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-   
-}
+        .btn-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+
+        }
 
 
         .footer {
@@ -328,6 +345,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar">
         <div class="navbar-brand">Recipe Recommendation</div>
         <div class="search-bar">
@@ -443,7 +461,8 @@
                     <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon"></span><span class="btn-text">View More</span></a></div>
+                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon"></span><span
+                            class="btn-text">View More</span></a></div>
             </div>
         </div>
         <div class="recipe-category">
@@ -489,12 +508,13 @@
                     <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
                     <a href="#" class="view-recipe-btn">View Recipe</a>
                 </div>
-                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon"></span><span class="btn-text">View
+                <div class="view-more"><a href="#" class="view-more-btn"><span class="arrow-icon"></span><span
+                            class="btn-text">View
                             More</span></a></div>
                 <!-- Add more recipe cards with image boxes -->
             </div>
         </div>
-      
+
         <footer class="footer">
             <p>&copy; 2024 Recipe Recommendation. All Rights Reserved.</p>
         </footer>
