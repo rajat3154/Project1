@@ -11,11 +11,9 @@
             font-family: sans-serif;
         }
 
-
-
         .background {
-            /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
-            background-image: url('https://source.unsplash.com/1600x900/?food');
+           
+            background-image: url('https://source.unsplash.com/1600x900/?recipes');
             background-size: cover;
             background-position: center;
             width: 100vw;
@@ -24,7 +22,7 @@
             top: 0;
             left: 0;
             z-index: -1;
-            /* Make sure the background is behind the login box */
+           
         }
 
         .login-container {
@@ -97,12 +95,10 @@
 </head>
 
 <body>
-
-
     <div class="background"></div>
     <div class="login-container">
         <h1>Login</h1>
-        <form id="signinForm" action="home.html" method="post">
+        <form id="signinForm" action="signin.php" method="post">
             <label for="mailid">Email:</label>
             <input type="text" id="mailid" name="mailid" placeholder="Enter Email" required>
             <label for="password">Password:</label>
@@ -114,12 +110,7 @@
         </div>
     </div>
     <script>
-        document.getElementById('signinForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            // Perform form validation and submit if valid
-            // For simplicity, assume validation passes and submit the form
-            this.submit();
-        });
+       
     </script>
 </body>
 

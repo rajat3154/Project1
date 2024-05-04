@@ -1,474 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Recommendation</title>
+    <title>Sign Up</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            background-color: #f8f8f8;
-        }
-
-        .navbar {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            height: 100px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 50px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            padding: 15px;
-            transition: background-color 0.3s ease;
-            font-size: 1.4rem;
-            margin-right: 10px;
-        }
-
-        .nav-link:hover {
-            background-color: #173aff;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            height: 100px;
-        }
-
-        .search-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 1.2rem;
-        }
-
-        .search-button {
-            background-color: #173aff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .search-button:hover {
-            background-color: #0b2aff;
-        }
-
-        .content {
-            padding-top: 120px;
-            /* Added padding to create space between navbar and content */
-            padding-left: 20px;
-            padding-right: 20px;
-            color: #000;
-            text-align: center;
-            margin-bottom: 100px;
-            /* Added margin bottom to prevent content from going under footer */
-        }
-
-        .recipe-category {
-            margin-bottom: 40px;
-            margin-top: 20px;
-            color: #fff;
-        }
-
-        .category-heading {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: black;
-        }
-
-        .recipe-cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-
-        .recipe-card {
-            flex: 0 0 calc(50% - 20px);
-            max-width: 300px;
-            height: 450px;
-            background-color: #000;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            color: #fff;
-            border: #fff 3px solid;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .recipe-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
+            background-image: url(https://source.unsplash.com/random/1920x1080);
+            background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            margin-bottom: 10px;
-            position: relative;
-            margin-top: 5px;
-
         }
 
-        .recipe-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: -1;
-            border-radius: 10px;
-        }
-
-        .recipe-card h3 {
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .recipe-card p {
-            font-size: 1.2rem;
-            line-height: 1.5;
-            position: relative;
-            z-index: 2;
-        }
-
-        .recipe-details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            z-index: 2;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .recipe-card:hover .recipe-details {
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-
-        .view-recipe-btn {
-            background-color: #173aff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 1px 0px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            margin-top: 5px;
-            display: inline-block;
-        }
-
-        .view-recipe-btn:hover {
-            background-color: #000000;
-        }
-
-        .recipe-category {
-            margin-left: 35px;
-        }
-
-        .view-more {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            margin-top: 20px;
-        }
-
-        .view-more a {
-            color: #000;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .view-more a:hover {
-            color: #173aff;
-        }
-
-        .arrow-icon {
-            margin-left: 10px;
-            transform: translateY(1px);
-        }
-
-        .view-more-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #173aff;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
+        .container {
+            width: 300px;
+            margin: 50px auto;
             padding: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            margin-left: auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            width: 60px;
-            height: 60px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
         }
 
-        .view-more-btn:hover {
-            background-color: #000000;
-        }
-
-        .arrow-icon {
-            color: #fff;
-            font-size: 1.5rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.3s ease;
-        }
-
-        .view-more-btn:hover .arrow-icon {
-            transform: translate(-50%, -50%) rotate(90deg);
-        }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
+        form {
             width: 100%;
-            background-color: #000;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
             color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .forgot-password {
+            margin-top: 1$@$v=v1.16$@$0px;
             text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
+        }
+
+        .forgot-password a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            color: #3e8e41;
+        }
+
+        .password-toggle {
+            position: relative;
+            top: 2px;
+            left: -25px;
+            cursor: pointer;
         }
     </style>
+    <script>
+        function validateForm() {
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var foodpreferences = document.getElementById("foodpreferences").value;
+            var cookingskills = document.getElementById("cookingskills").value;
+
+            if (fullname == "" || email == "" || password == "" || foodpreferences == "" || cookingskills == "") {
+                alert("All fields must be filled out.");
+                return false;
+            }
+
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.getElementById("password-toggle");
+
+            if (passwordInput.type == "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = "Hide";
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = "Show";
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-brand">Recipe Recommendation</div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search for recipes...">
-            <button class="search-button">Search</button>
-        </div>
-        <div class="navbar-links">
-            <a href="#." class="nav-link" onclick="showCategory('all')">All</a>
-            <a href="#" class="nav-link" onclick="showCategory('italian')">Italian</a>
-            <a href="#" class="nav-link" onclick="showCategory('indian')">Indian</a>
-            <a href="#" class="nav-link" onclick="showCategory('chinese')">Chinese</a>
-            <a href="#" class="nav-link">Signup</a>
-        </div>
-    </nav>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form onsubmit="return validateForm()">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" required>
 
-    <div class="content">
-        <div id="indian" class="recipe-category">
-            <h2 class="category-heading">Italian Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <span id="password-toggle" class="password-toggle" onclick="togglePasswordVisibility()">Show</span>
+
+            <label for="foodpreferences">Food Preferences:</label>
+            <input type="text" id="foodpreferences" required>
+
+            <label for="cookingskills">Cooking Skill Level:</label>
+            <select id="cookingskills" required>
+                <option value=""></option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <button type="submit">Sign Up</button>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
             </div>
-        </div>
-        <div id="italian" class="recipe-category">
-            <h2 class="category-heading">Italian Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-            </div>
-        </div>
-        <div id="indian" class="recipe-category" style="display: none;">
-            <h2 class="category-heading">Indian Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-            </div>
-        </div>
-        <div id="chinese" class="recipe-category" style="display: none;">
-            <h2 class="category-heading">Chinese Recipes</h2>
-            <div class="recipe-cards-container">
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Recipe Recommendation. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function showCategory(category) {
-            const categories = document.querySelectorAll('.recipe-category');
-            categories.forEach((element) => {
-                if (element.id === category) {
-                    element.style.display = 'block';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
