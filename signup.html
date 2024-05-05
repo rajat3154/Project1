@@ -33,9 +33,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 400px;
+            width: 500px;
+            /* Increased width to 500px */
             color: #fff;
             margin-top: 50px;
+            max-width: 90%;
+            /* Added max-width to ensure responsiveness */
         }
 
         .login-container h1 {
@@ -45,17 +48,21 @@
 
         .login-container label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            /* Slightly reduced margin for labels */
             color: #ccc;
         }
 
         .login-container input,
         .login-container select {
-            width: 100%;
-            padding: 15px;
+            width: calc(100% - 30px);
+            /* Adjusted width to account for padding */
+            padding: 10px;
+            /* Reduced padding for inputs and selects */
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            /* Increased margin-bottom for inputs and selects */
             box-sizing: border-box;
             transition: border-color 0.2s ease-in-out;
         }
@@ -66,10 +73,9 @@
         }
 
         .login-container .create-account-btn {
-            width: 100%;
             text-align: center;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 20px;
+            /* Increased margin-top for button container */
         }
 
         .login-container .create-account-btn button {

@@ -4,831 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Categories</title>
+    <title>About Sidebar</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
-
-        /* Navbar styles */
-        .navbar {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 50px;
-        }
-
-        .nav-btn {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 0;
-            padding: 10px 0;
-            /* Adjusted padding */
-            width: 33.33%;
-            /* Equal partition for each button */
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            position: relative;
-            text-align: center;
-        }
-
-        .nav-btn::after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 1px;
-            background-color: #fff;
-            /* White line between buttons */
-            right: 0;
+        /* Style for sidebar */
+        .sidebar-left {
+            width: 300px;
+            background-color: #f1f1f1;
+            position: fixed;
             top: 0;
+            left: -300px;
+            height: 100%;
+            overflow-y: auto;
+            padding-top: 20px;
+            transition: 0.3s;
         }
 
-        .nav-btn:last-child::after {
-            display: none;
-            /* Hide the line after the last button */
+        .sidebar-left.show {
+            left: 0;
         }
 
-        .nav-btn:hover {
-            background-color: #0b2aff;
-            /* Blue background on hover */
-            color: #fff;
-            /* White text color on hover */
-        }
-
-        .container {
-            max-width: 100%;
-            margin: 20px auto;
-           padding-left: 50px;
-           padding-right: 50px;
-        }
-
-        .category-buttons {
+        .sidebar-left .card {
             margin-bottom: 20px;
-        }
-
-        .category-btn {
-            background-color: #173aff;
-            color: #fff;
-            border: none;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 8px 16px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-right: 10px;
-        }
-
-        .category-btn:hover {
-            background-color: #000;
-        }
-
-        .category-container {
-            display: none;
-            margin-bottom: 30px;
-        }
-
-        .category-container.show {
-            display: block;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .recipe-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            /* Center recipe cards horizontally */
-        }
-
-        .recipe-card {
-            flex: 0 0 calc(50% - 20px);
-            max-width: 270px;
-            height: 450px;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            color: #333;
-            /* Updated text color */
-            border: 1px solid #e0e0e0;
-            /* Updated border */
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .recipe-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 10px;
-            position: relative;
-            margin-top: 5px;
-        }
-
-        .recipe-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: -1;
-            border-radius: 10px;
-        }
-
-        .recipe-card h3 {
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-            color: #000;
-            /* Updated heading color */
-        }
-
-        .recipe-card p {
-            font-size: 1.2rem;
-            line-height: 1.5;
-            position: relative;
-            z-index: 2;
-        }
-
-        .recipe-details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            z-index: 2;
+            background-color: #fff;
+        }
+
+        .sidebar-left .card h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-left .card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar-left .card ul li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-left .card p {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-left .edit-profile {
+            margin-top: 20px;
             text-align: center;
-            transition: background-color 0.3s ease;
         }
 
-        .recipe-card:hover .recipe-details {
-            background-color: rgba(255, 255, 255, 0.7);
+        .sidebar-left .edit-profile-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
         }
 
-    .view-recipe-btn {
-    background-color: #173aff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    /* Adjusted padding for better button size */
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: flex; /* Changed display to flex */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    width: 100px; /* Set a specific width */
-    text-align: center; /* Center text within the button */
-    margin: auto; /* Center the button horizontally within the card */
-}
-
-
-        .view-recipe-btn:hover {
-            background-color: #0b2aff;
+        .sidebar-left .edit-profile-btn:hover {
+            background-color: #0056b3;
         }
 
-        .recipe-category {
-            margin-left: 35px;
+        /* Style for close button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <button class="nav-btn" id="vegBtn">Veg</button>
-        <button class="nav-btn" id="nonVegBtn">Non-Veg</button>
-        <button class="nav-btn" id="beveragesBtn">Beverages</button>
-    </div>
-
-    <div class="container">
-        <div class="category-container" id="veg-recipes">
-            <h2 class="category-title">Veg Recipes</h2>
-            <div class="recipe-cards">
-                <!-- Veg Recipe Cards -->
-             
-                <!-- Add more recipe cards here -->
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image"
-                        style="background-image: url('https://source.unsplash.com/300x200/?spaghetti');">
-                    </div>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                    <a href="#" class="view-recipe-btn">View Recipe</a>
-                </div>
-                <!-- End of Veg Recipe Cards -->
-            </div>
+    <div class="sidebar-left">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card">
+            <section id="mission">
+                <h1>Mission Statement</h1>
+                <p>At [Your Company Name], we're passionate about helping you discover delicious recipes tailored to
+                    your preferences, dietary needs, and available ingredients. Our goal is to make cooking enjoyable,
+                    convenient, and healthy for everyone.</p>
+            </section>
         </div>
-
-        <div class="category-container" id="nonVeg-recipes">
-            <h2 class="category-title">Non-Veg Recipes</h2>
-            <div class="recipe-cards">
-                <!-- Non-Veg Recipe Cards -->
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?chcken');">
-                </div>
-                <h3>Chicken Roll</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-                <!-- Add more recipe cards here -->
-                
-                <!-- End of Non-Veg Recipe Cards -->
-            </div>
+        <div class="card">
+            <section id="how-it-works">
+                <h1>How It Works</h1>
+                <ul>
+                    <li>User Preferences</li>
+                    <li>Search History</li>
+                    <li>Meal Plans</li>
+                    <li>Ingredient-Based Recommendations</li>
+                </ul>
+            </section>
         </div>
-
-        <div class="category-container" id="beverages">
-            <h2 class="category-title">Beverages</h2>
-            <div class="recipe-cards">
-                <!-- Beverage Recipe Cards -->
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-            <div class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://source.unsplash.com/300x200/?juice');">
-                </div>
-                <h3>Pineapple Juice</h3>
-                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan cheese.</p>
-                <a href="#" class="view-recipe-btn">View Recipe</a>
-            </div>
-                <!-- End of Beverage Recipe Cards -->
-            </div>
+        <div class="card">
+            <section id="key-features">
+                <h1>Key Features</h1>
+                <ul>
+                    <li>Personalized Recommendations</li>
+                    <li>Save Favorites</li>
+                    <li>Meal Planning</li>
+                    <li>Shopping List</li>
+                    <li>Community Interaction</li>
+                </ul>
+            </section>
+        </div>
+        <div class="card">
+            <section id="our-team">
+                <h1>Our Team</h1>
+                <p>Meet the dedicated team behind our recipe recommendation system. We're a group of food lovers,
+                    nutritionists, and tech enthusiasts working together to make cooking enjoyable and hassle-free for
+                    everyone.</p>
+            </section>
+        </div>
+        <div class="card">
+            <section id="contact">
+                <h1>Contact Us</h1>
+                <p>Have questions, feedback, or suggestions? We'd love to hear from you! Contact our support team at <a
+                        href="mailto:support@yourcompany.com">support@yourcompany.com</a> or reach out to us on social
+                    media.</p>
+            </section>
+        </div>
+        <div class="edit-profile">
+            <a href="#" class="edit-profile-btn">Edit Profile</a>
         </div>
     </div>
+
+    <button onclick="toggleSidebar()">Toggle Sidebar</button>
 
     <script>
-        document.getElementById('vegBtn').addEventListener('click', function () {
-            document.getElementById('veg-recipes').classList.toggle('show');
-        });
-        document.getElementById('nonVegBtn').addEventListener('click', function () {
-            document.getElementById('nonVeg-recipes').classList.toggle('show');
-        });
-        document.getElementById('beveragesBtn').addEventListener('click', function () {
-            document.getElementById('beverages').classList.toggle('show');
-        });
+        function toggleSidebar() {
+            document.querySelector('.sidebar-left').classList.toggle('show');
+        }
     </script>
 </body>
 
