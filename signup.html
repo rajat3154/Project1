@@ -12,7 +12,6 @@
         }
 
         .background {
-            /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
             background-image: url('https://source.unsplash.com/1600x900/?food');
             background-size: cover;
             background-position: center;
@@ -34,11 +33,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 500px;
-            /* Increased width to 500px */
             color: #fff;
             margin-top: 50px;
             max-width: 90%;
-            /* Added max-width to ensure responsiveness */
         }
 
         .login-container h1 {
@@ -49,20 +46,16 @@
         .login-container label {
             display: block;
             margin-bottom: 10px;
-            /* Slightly reduced margin for labels */
             color: #ccc;
         }
 
         .login-container input,
         .login-container select {
             width: calc(100% - 30px);
-            /* Adjusted width to account for padding */
             padding: 10px;
-            /* Reduced padding for inputs and selects */
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 20px;
-            /* Increased margin-bottom for inputs and selects */
             box-sizing: border-box;
             transition: border-color 0.2s ease-in-out;
         }
@@ -75,7 +68,6 @@
         .login-container .create-account-btn {
             text-align: center;
             margin-top: 20px;
-            /* Increased margin-top for button container */
         }
 
         .login-container .create-account-btn button {
@@ -152,12 +144,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            // Perform form validation and submit if valid
-            // For simplicity, assume validation passes and submit the form
-            this.submit();
-        });
+     
 
     </script>
 </body>
