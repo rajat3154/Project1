@@ -1,38 +1,62 @@
-<?php
-// Start the session
-session_start();
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the form data
-    $email = $_POST['mailid'];
-    $password = $_POST['password'];
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Perform form validation and submit if valid
+            // For simplicity, assume validation passes and submit the form
+            this.submit();
+        });
 
-    // Connecting to the Database
-    $servername = "localhost";
-    $username = "root";
-    $db_password = ""; 
-    $database = "useraccount";
-    // Create a connection
-    $conn = mysqli_connect($servername, $username, $db_password, $database);
-    // Die if connection was not successful
-    if (!$conn) {
-        die("Sorry we failed to connect: " . mysqli_connect_error());
-    } else {
-        // SQL query to check if user exists with the entered credentials
-        $sql = "SELECT * FROM `users` WHERE `Email`='$email' AND `Password`='$password'";
-        $result = mysqli_query($conn, $sql);
-        $numRows = mysqli_num_rows($result);
+    </script>
 
-        if ($numRows == 1) {
-            // User exists, redirect to home.html or any other page
-            $_SESSION['email'] = $email; // Store user's email in session for future use
-            header("Location: index.html"); // Redirect to home.html
-            exit(); // Stop further execution
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $food_pref = $_POST['food-preferences'];
+        $cooking_skill = $_POST['cooking-skill'];
+
+        // Connecting to the Database
+        $servername = "localhost";
+        $username = "root";
+        $db_password = ""; // Use your database password here
+        $database = "useraccount"; // Use your database name here
+
+        // Create a connection
+        $conn = mysqli_connect($servername, $username, $db_password, $database);
+        // Die if connection was not successful
+        if (!$conn) {
+            die("Sorry we failed to connect: " . mysqli_connect_error());
         } else {
-            // User does not exist or credentials are incorrect
-            echo '<div style="color: red; text-align: center;">Invalid credentials. Please try again.</div>';
+            // Submit these to a database
+            // SQL query to be executed
+            $sql = "INSERT INTO `users` (`FullName`, `Email`, `Password`, `Food_Preference`, `Cooking_Skill`, `Time`) VALUES ( '$fullname', '$email', '$password', '$food_pref', '$cooking_skill', current_timestamp());";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> Your entry has been submitted successfully!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                      </div>';
+            } else {
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error!</strong> We are facing some technical issue and your entry was not submitted successfully! We regret the inconvenience caused!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                      </div>';
+            }
+
         }
     }
-}
-?>
+    ?>
+
+</body>
+
+</html>
