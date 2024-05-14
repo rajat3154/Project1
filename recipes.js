@@ -36,9 +36,9 @@ function performSearch() {
     table = document.getElementById("recipeTable");
     tr = table.getElementsByTagName("tr");
 
-    // Loop through all table rows, hide those that don't match the search query
+   
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0]; // Change index if searching in different columns
+        td = tr[i].getElementsByTagName("td")[0];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {

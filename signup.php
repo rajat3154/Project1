@@ -5,8 +5,6 @@
     <script>
         document.getElementById('signupForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            // Perform form validation and submit if valid
-            // For simplicity, assume validation passes and submit the form
             this.submit();
         });
 
@@ -20,20 +18,18 @@
         $food_pref = $_POST['food-preferences'];
         $cooking_skill = $_POST['cooking-skill'];
 
-        // Connecting to the Database
         $servername = "localhost";
         $username = "root";
-        $db_password = ""; // Use your database password here
-        $database = "useraccount"; // Use your database name here
+        $db_password = ""; 
+        $database = "useraccount";
 
-        // Create a connection
         $conn = mysqli_connect($servername, $username, $db_password, $database);
-        // Die if connection was not successful
+      
+        
         if (!$conn) {
             die("Sorry we failed to connect: " . mysqli_connect_error());
         } else {
-            // Submit these to a database
-            // SQL query to be executed
+           
             $sql = "INSERT INTO `users` (`FullName`, `Email`, `Password`, `Food_Preference`, `Cooking_Skill`, `timestamp`) VALUES ( '$fullname', '$email', '$password', '$food_pref', '$cooking_skill', current_timestamp());";
             $result = mysqli_query($conn, $sql);
 

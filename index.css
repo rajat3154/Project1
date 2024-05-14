@@ -59,7 +59,6 @@
      border-radius: 5px;
      box-sizing: border-box;
      font-size: 1rem;
-     /* Slightly reduced font size */
  }
 
  .search-button {
@@ -68,20 +67,15 @@
      border: none;
      border-radius: 5px;
      padding: 8px 15px;
-     /* Reduced padding */
      margin-left: 5px;
-     /* Reduced margin */
      cursor: pointer;
      transition: background-color 0.3s ease, color 0.3s ease;
-     /* Added color transition */
      font-size: 1rem;
-     /* Slightly reduced font size */
  }
 
  .search-button:hover {
      background-color: #0b2aff;
      color: #fff;
-     /* Ensure color change on hover */
  }
 
 
@@ -91,20 +85,15 @@
      background-repeat: no-repeat;
      background-attachment: fixed;
      height: calc(100vh - 100px);
-     /* Adjusted height to fit between navbar and footer */
      display: flex;
      justify-content: center;
      align-items: center;
      color: #fff;
      text-align: center;
      margin-top: 70px;
-     /* Added margin top to align with navbar */
      margin-bottom: 60px;
-     /* Adjusted margin bottom to align with footer */
      position: relative;
-     /* Added position to enable z-index */
      z-index: 0;
-     /* Set a lower z-index to be behind navbar and footer */
  }
 
 
@@ -131,7 +120,6 @@
      text-align: center;
      margin-top: 30px;
      margin-bottom: 100px;
-     /* Adjusted margin bottom to provide space for footer */
  }
 
  .recipe-category {
@@ -298,20 +286,16 @@
      background-color: #000000;
  }
 
- /* Add animation to the arrow icon */
+ 
  .arrow-icon {
      margin-left: 10px;
      transform: translateY(1px);
      transition: transform 0.3s ease;
-     /* Add transition for smooth animation */
+     
  }
-
- /* Rotate the arrow icon on hover */
  .view-more-btn:hover .arrow-icon {
      transform: translate(-50%, -50%) rotate(90deg);
  }
-
-
 
  .btn-text {
      position: absolute;
@@ -346,14 +330,11 @@
      display: flex;
      justify-content: center;
      margin-bottom: 20px;
-     /* Added margin-bottom to create space below the profile photo */
  }
 
  .profile-photo img {
      width: 150px;
-     /* Increased width of the profile photo */
      height: 150px;
-     /* Increased height of the profile photo */
      border-radius: 50%;
      object-fit: cover;
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

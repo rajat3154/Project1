@@ -1,11 +1,10 @@
   <?php
-            // Check if the database connection is successful
+            
             $conn = mysqli_connect("localhost", "root", "", "recipes2");
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            // Fetch all recipes from the database
             $sql = "SELECT * FROM `recipes2`";
             $result = mysqli_query($conn, $sql);
 

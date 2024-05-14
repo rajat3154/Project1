@@ -7,31 +7,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     toggleSidebarBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        sidebar.style.right = "0"; // Slide in the sidebar from the right
+        sidebar.style.right = "0";
     });
 
     closeBtn.addEventListener("click", function () {
-        sidebar.style.right = "-450px"; // Move the sidebar off-screen
+        sidebar.style.right = "-450px";
     });
 
     aboutLink.addEventListener("click", function (e) {
         e.preventDefault();
-        sidebarLeft.style.left = "0"; // Slide in the sidebar from the left
+        sidebarLeft.style.left = "0";
     });
 
-    const closeBtnLeft = document.querySelector(".sidebar-left .close-btn"); // Updated selector for the close button of the left sidebar
+    const closeBtnLeft = document.querySelector(".sidebar-left .close-btn"); 
 
     closeBtnLeft.addEventListener("click", function () {
-        sidebarLeft.style.left = "-450px"; // Move the left sidebar off-screen
+        sidebarLeft.style.left = "-450px";
     });
 
-    // Update sidebar top padding on window resize
+
     window.addEventListener("resize", function () {
         sidebar.style.paddingTop = document.querySelector(".navbar").offsetHeight + "px";
         sidebarLeft.style.paddingTop = document.querySelector(".navbar").offsetHeight + "px";
     });
 
-    // Initialize sidebar padding on page load
+  
     sidebar.style.paddingTop = document.querySelector(".navbar").offsetHeight + "px";
     sidebarLeft.style.paddingTop = document.querySelector(".navbar").offsetHeight + "px";
 });
@@ -40,19 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var editProfileBtn = document.querySelector('.edit-profile-btn');
     var closeBtn = document.querySelector('.close-btn');
 
-    // Open sidebar with edit form when clicking Edit Profile button
+
     editProfileBtn.addEventListener('click', function (event) {
         event.preventDefault();
         sidebar.classList.add('open');
     });
 
-    // Close sidebar when clicking close button
+
     closeBtn.addEventListener('click', function (event) {
         event.preventDefault();
         sidebar.classList.remove('open');
     });
 
-    // Save profile changes function
     function saveProfileChanges() {
         var editUsername = document.getElementById('editUsername').value;
         var editEmail = document.getElementById('editEmail').value;
@@ -61,18 +60,18 @@ document.addEventListener('DOMContentLoaded', function () {
         var editProfileImage = document.getElementById('editProfileImage').files[0];
         var editProfileImageURL = URL.createObjectURL(editProfileImage);
 
-        // Update profile info
+        
         document.querySelector('.profile-details p:nth-child(2)').textContent = 'Username: ' + editUsername;
         document.querySelector('.profile-details p:nth-child(3)').textContent = 'Email: ' + editEmail;
         document.querySelector('.profile-details p:nth-child(4)').textContent = 'Food Preferences: ' + editFoodPref;
         document.querySelector('.profile-details p:nth-child(5)').textContent = 'Cooking Skill Level: ' + editCookingSkill;
         document.querySelector('.profile-photo img').src = editProfileImageURL;
 
-        // Close edit form and sidebar
+       
         sidebar.classList.remove('open');
     }
 
-    // Attach saveProfileChanges function to the Save Changes button in the edit form
+  
     document.getElementById('saveProfileChangesBtn').addEventListener('click', saveProfileChanges);
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -96,22 +95,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const editForm = document.getElementById('editForm');
 
     editForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
-        // Get form field values
         const editUsername = document.getElementById('editUsername').value;
         const editEmail = document.getElementById('editEmail').value;
         const editFoodPref = document.getElementById('editFoodPref').value;
         const editCookingSkill = document.getElementById('editCookingSkill').value;
-        // Handle profile image upload if needed
+       
 
-        // Update profile info on the page
+       
         document.querySelector('.profile-details p:nth-child(2)').textContent = 'Username: ' + editUsername;
         document.querySelector('.profile-details p:nth-child(3)').textContent = 'Email: ' + editEmail;
         document.querySelector('.profile-details p:nth-child(4)').textContent = 'Food Preferences: ' + editFoodPref;
         document.querySelector('.profile-details p:nth-child(5)').textContent = 'Cooking Skill Level: ' + editCookingSkill;
 
-        // Close the edit form
         document.querySelector('.edit-form').style.display = 'none';
     });
 });

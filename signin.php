@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$conn) {
         die("Sorry we failed to connect: " . mysqli_connect_error());
     } else {
-        $email = mysqli_real_escape_string($conn, $email); // Sanitize input
-        $password = mysqli_real_escape_string($conn, $password); // Sanitize input
+        $email = mysqli_real_escape_string($conn, $email); 
+        $password = mysqli_real_escape_string($conn, $password);
 
         $sql = "SELECT * FROM `users` WHERE `Email` = '$email' AND `Password` = '$password'";
         $result = mysqli_query($conn, $sql);

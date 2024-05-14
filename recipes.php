@@ -58,7 +58,7 @@
         <div class="recipe-card" id="recipeCard">
             <button class="close-btn" onclick="toggleRecipeCard()" class="fade-in">X</button>
             <div id="recipeCardContentContainer">
-                <!-- Content will be dynamically populated here -->
+               
             </div>
         </div>
 

@@ -74,12 +74,9 @@
     }
         .logo-img {
             height: 30%;
-            /* Adjust to fit the navbar height */
             width: auto;
-            /* Maintain aspect ratio */
             max-width: 100%;
             margin-left: 0;
-            /* Ensure the image doesn't overflow */
         }
 
     .button:hover {
@@ -139,7 +136,6 @@
         border-radius: 5px;
         box-sizing: border-box;
         font-size: 1rem;
-        /* Slightly reduced font size */
     }
 
     .search-button {
@@ -148,20 +144,15 @@
         border: none;
         border-radius: 5px;
         padding: 8px 15px;
-        /* Reduced padding */
         margin-left: 5px;
-        /* Reduced margin */
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
-        /* Added color transition */
         font-size: 1rem;
-        /* Slightly reduced font size */
     }
 
     .search-button:hover {
         background-color: #0b2aff;
         color: #fff;
-        /* Ensure color change on hover */
     }
 
     .sidebar {
@@ -189,14 +180,11 @@
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
-        /* Added margin-bottom to create space below the profile photo */
     }
 
     .profile-photo img {
         width: 150px;
-        /* Increased width of the profile photo */
         height: 150px;
-        /* Increased height of the profile photo */
         border-radius: 50%;
         object-fit: cover;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
