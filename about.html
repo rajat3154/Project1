@@ -5,339 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Recipe Recommendation System</title>
-  <!-- <link rel="stylesheet" href="about.css"> -->
-  <style>
-       body {
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       margin: 0;
-       padding: 0;
-       background-color: #f8f8f8;
-       color: #333;
-       margin-top: 100px;
-   }
-
-   header {
-       background-color: #333;
-       color: #fff;
-       padding: 10px 0;
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-   }
-
-   nav ul {
-       list-style-type: none;
-       margin: 0;
-       padding: 0;
-       text-align: center;
-   }
-
-   nav ul li {
-       display: inline-block;
-       margin-right: 20px;
-   }
-
-   nav ul li a {
-       color: #fff;
-       text-decoration: none;
-       transition: color 0.3s ease;
-   }
-
-   nav ul li a.active {
-       font-weight: bold;
-       color: #ff7f50;
-   }
-
-   main {
-       padding: 20px;
-   }
-
-   .card {
-       background-color: #000;
-       color: #fff;
-       border-radius: 8px;
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-       padding: 20px;
-       margin-bottom: 20px;
-   }
-
-   h1 {
-       font-size: 28px;
-       margin-bottom: 10px;
-       color: #fff;
-   }
-
-   p {
-       font-size: 18px;
-       line-height: 1.6;
-       margin-bottom: 15px;
-       color: #fff;
-   }
-
-   .button {
-       display: inline-block;
-       background-color: #ff7f50;
-       color: #fff;
-       padding: 10px 20px;
-       text-decoration: none;
-       border-radius: 5px;
-       transition: background-color 0.3s ease;
-   }
-
-   .button:hover {
-       background-color: #ff6347;
-   }
-
-   .navbar {
-       background-color: #000;
-       color: #fff;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       padding: 5px 20px;
-       height: 70px;
-       position: fixed;
-       width: 100%;
-       top: 0;
-       z-index: 1000;
-   }
-
-   .navbar-brand {
-       font-size: 1.5rem;
-       font-weight: bold;
-   }
-
-   .navbar-links {
-       display: flex;
-       gap: 30px;
-   }
-
-   .nav-link {
-       color: #fff;
-       text-decoration: none;
-       padding: 10px;
-       transition: background-color 0.3s ease;
-       font-size: 1.2rem;
-       margin-right: 5px;
-
-   }
-
-   .nav-link:hover {
-       background-color: #0b2aff;
-   }
-
-   .search-bar {
-       display: flex;
-       align-items: center;
-       height: 70px;
-
-   }
-
-   .search-input {
-       width: 100%;
-       max-width: 300px;
-       padding: 8px;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-       box-sizing: border-box;
-       font-size: 1rem;
-       /* Slightly reduced font size */
-   }
-
-   .search-button {
-       background-color: #173aff;
-       color: #fff;
-       border: none;
-       border-radius: 5px;
-       padding: 8px 15px;
-       /* Reduced padding */
-       margin-left: 5px;
-       /* Reduced margin */
-       cursor: pointer;
-       transition: background-color 0.3s ease, color 0.3s ease;
-       /* Added color transition */
-       font-size: 1rem;
-       /* Slightly reduced font size */
-   }
-
-   .search-button:hover {
-       background-color: #0b2aff;
-       color: #fff;
-       /* Ensure color change on hover */
-   }
-
-   .sidebar {
-       position: fixed;
-       right: -450px;
-       top: 80px;
-       bottom: 70px;
-       width: 400px;
-       background-color: #fff;
-       padding-top: 70px;
-       transition: right 0.3s ease;
-       z-index: 1001;
-       color: #000;
-       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-       overflow-y: auto;
-   }
-
-   .profile-info {
-       padding: 20px;
-       border-bottom: 1px solid #ccc;
-       color: #000;
-   }
-
-   .profile-photo {
-       display: flex;
-       justify-content: center;
-       margin-bottom: 20px;
-       /* Added margin-bottom to create space below the profile photo */
-   }
-
-   .profile-photo img {
-       width: 150px;
-       /* Increased width of the profile photo */
-       height: 150px;
-       /* Increased height of the profile photo */
-       border-radius: 50%;
-       object-fit: cover;
-       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   }
- .profile-details{
-    color: black;
-    background-color: white;
- }
-   .profile-details h2 {
-       font-size: 1.5rem;
-       margin-bottom: 10px;
-   }
-
-   .profile-details p {
-       margin-bottom: 5px;
-   }
-
-   .edit-profile {
-       padding: 20px;
-       text-align: center;
-   }
-
-   .edit-profile-btn {
-       background-color: #173aff;
-       color: #fff;
-       border: none;
-       border-radius: 5px;
-       padding: 10px 20px;
-       font-size: 1rem;
-       cursor: pointer;
-       transition: background-color 0.3s ease;
-       text-decoration: none;
-   }
-
-   .edit-profile-btn:hover {
-       background-color: #0b2aff;
-   }
-
-   .close-btn {
-       position: absolute;
-       top: 10px;
-       right: 10px;
-       font-size: 20px;
-       cursor: pointer;
-   }
-
-   .sidebar-left {
-       position: fixed;
-       left: -450px;
-       top: 80px;
-       bottom: 70px;
-       width: 400px;
-       background-color: #fff;
-       padding-top: 70px;
-       transition: left 0.3s ease;
-       z-index: 1001;
-       color: #000;
-       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-       overflow-y: auto;
-   }
-
-   .footer {
-       position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-       background-color: #000;
-       color: #fff;
-       text-align: center;
-       padding: 10px 0;
-       z-index: 1000;
-   }
-
-   .edit-form {
-       display: none;
-       padding: 20px;
-       background-color: #f8f8f8;
-       border-radius: 10px;
-       margin-top: 20px;
-   }
-
-   .edit-form label {
-       display: block;
-       margin-bottom: 10px;
-   }
-
-   .edit-form input,
-   .edit-form textarea {
-       width: 100%;
-       padding: 8px;
-       margin-bottom: 10px;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-       box-sizing: border-box;
-   }
-
-   .edit-form button {
-       background-color: #173aff;
-       color: #fff;
-       border: none;
-       border-radius: 5px;
-       padding: 10px 15px;
-       font-size: 1rem;
-       cursor: pointer;
-       transition: background-color 0.3s ease;
-   }
-
-   .edit-form button:hover {
-       background-color: #0b2aff;
-   }
-  </style>
-
+    <link rel="stylesheet" href="about.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-brand">Recipe Recommendation</div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search for recipes...">
-            <button class="search-button">Search</button>
-        </div>
-        <div class="navbar-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="recipes.html" class="nav-link">Recipes</a>
-    
+<nav class="navbar">
+    <div class="navbar-brand">
+        <img src="assets/logo.png"" alt="Logo" class="logo-img">
+    </div>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search for recipes...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="recipes.php" class="nav-link">Recipes</a>
         <a href="#" class="nav-link toggle-sidebar">Profile</a>
-            <a href="about.html" class="nav-link">About</a>
-    
-    
-            <a href="signup.html" class="nav-link">Signup</a>
-        </div>
-    </nav>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="signup.html" class="nav-link">Signup</a>
+    </div>
+</nav>
+
     <div class="sidebar">
         <a href="#" class="close-btn">&times;</a>
         <div class="profile-info">
             <div class="profile-photo">
-                <!-- Add an image tag with your profile photo source -->
                 <img src="profile.jpg" alt="Profile Photo">
             </div>
             <div class="profile-details">
-                <h2  style="color: black;">Profile</h2>
+                <h2 style="color: black;">Profile</h2>
                 <p style="color: black;">Email: johndoe@example.com</p>
                 <p style="color: black;">Username: johndoe123</p>
                 <p style="color: black;">Food Preferences: Italian, Mexican</p>
@@ -350,25 +46,26 @@
         <div class="edit-form">
             <a href="#" class="close-btn">&times;</a>
             <h2>Edit Profile</h2>
-    
+
             <form id="editForm">
                 <label for="editUsername">Username:</label>
                 <input type="text" id="editUsername" name="editUsername" value="johndoe123">
-    
+
                 <label for="editEmail">Email:</label>
                 <input type="email" id="editEmail" name="editEmail" value="johndoe@example.com">
-    
+
                 <label for="editFoodPref">Food Preferences:</label>
                 <input type="text" id="editFoodPref" name="editFoodPref" value="Italian, Mexican">
-    
+
                 <label for="editCookingSkill">Cooking Skill Level:</label>
                 <input type="text" id="editCookingSkill" name="editCookingSkill" value="Intermediate">
-    
+
                 <label for="editProfileImage">Profile Picture:</label>
                 <input type="file" id="editProfileImage" name="editProfileImage" accept="image/*">
-    
+
                 <input type="button" id="saveProfileChangesBtn" value="Save Changes" onclick="saveProfileChanges()">
-                <button type="submit" id="saveProfileChangesBtn" value="Save Changes" onclick="saveProfileChanges()">Save
+                <button type="submit" id="saveProfileChangesBtn" value="Save Changes"
+                    onclick="saveProfileChanges()">Save
                     Changes</button>
             </form>
         </div>
@@ -430,9 +127,9 @@
             </section>
         </div>
     </main>
-<!-- <script src="about.js"></script> -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <!-- <script src="about.js"></script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             const toggleSidebarBtn = document.querySelector(".toggle-sidebar");
             const sidebar = document.querySelector(".sidebar");
             const sidebarLeft = document.querySelector(".sidebar-left");
@@ -553,7 +250,7 @@
         function toggleSidebar() {
             document.querySelector('.sidebar-left').classList.toggle('show');
         }
-</script>
+    </script>
 </body>
 
 </html>

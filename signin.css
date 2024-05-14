@@ -51,11 +51,11 @@
    }
 
    .login-container input:focus {
-       border-color: #0095ff;
+       border-color: #0b2aff;
    }
 
    .login-container button {
-       background-color: #0095ff;
+       background-color: #0b2aff;
        color: #fff;
        padding: 12px 25px;
        border: none;

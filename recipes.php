@@ -14,6 +14,22 @@
 </head>
 
 <body>
+    <nav class="navbar">
+    <div class="navbar-brand">
+        <img src="assets/logo.png"" alt="Logo" class="logo-img">
+    </div>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search for recipes...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="recipes.html" class="nav-link">Recipes</a>
+        <a href="#" class="nav-link toggle-sidebar">Profile</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="signup.html" class="nav-link">Signup</a>
+    </div>
+</nav>
     <div class="form-container">
         <div class="slidebar" id="slidebar">
             <h2>Search Recipes</h2>

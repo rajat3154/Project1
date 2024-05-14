@@ -63,7 +63,7 @@
  }
 
  .login-container .create-account-btn button {
-     background-color: #0095ff;
+     background-color: #0b2aff;
      color: #fff;
      padding: 12px 0;
      border: none;
@@ -74,7 +74,7 @@
  }
 
  .login-container .create-account-btn button:hover {
-     background-color: #007bff;
+     background-color: #09ff00;
  }
 
  .login-container .sign-up {
@@ -90,5 +90,5 @@
  }
 
  .login-container .sign-up a:hover {
-     color: #0095ff;
+     color: #ffffff;
  }
