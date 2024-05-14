@@ -34,7 +34,7 @@
         } else {
             // Submit these to a database
             // SQL query to be executed
-            $sql = "INSERT INTO `users` (`FullName`, `Email`, `Password`, `Food_Preference`, `Cooking_Skill`, `Time`) VALUES ( '$fullname', '$email', '$password', '$food_pref', '$cooking_skill', current_timestamp());";
+            $sql = "INSERT INTO `users` (`FullName`, `Email`, `Password`, `Food_Preference`, `Cooking_Skill`, `timestamp`) VALUES ( '$fullname', '$email', '$password', '$food_pref', '$cooking_skill', current_timestamp());";
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
