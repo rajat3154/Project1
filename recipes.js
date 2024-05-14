@@ -1,53 +1,51 @@
-// Function to open the left sidebar
-function toggleLeftSidebar() {
-    var leftSidebar = document.querySelector('.left-slidebar');
-    leftSidebar.classList.toggle('left-slidebar-open');
-}
-
-// Function to open the right sidebar
-function toggleRightSidebar() {
-    var rightSidebar = document.querySelector('.right-slidebar');
-    rightSidebar.classList.toggle('right-slidebar-open');
-}
-
-// Function to open the recipe card and display recipe details
-function openRecipeCard() {
-    var recipeCard = document.getElementById("recipeCard");
-    recipeCard.classList.add("open");
-    var rowData = this.parentNode.parentNode.cells;
-    document.getElementById("recipeTitle").innerText = rowData[0].innerText;
-    document.getElementById("recipeIngredients").innerText = rowData[1].innerText;
-    document.getElementById("recipeProcedure").innerText = rowData[2].innerText;
-    document.getElementById("recipeSubmittedBy").innerText = rowData[3].innerText;
-}
-
-// Function to close the recipe card
-function closeRecipeCard() {
-    var recipeCard = document.getElementById("recipeCard");
-    recipeCard.classList.remove("open");
-}
-
-// Attach click event to view recipe buttons
-var viewRecipeBtns = document.querySelectorAll(".view-recipe-btn");
-viewRecipeBtns.forEach(function (btn) {
-    btn.addEventListener("click", openRecipeCard);
+$(document).ready(function () {
+    $('#recipeTable').DataTable();
 });
 
-// Search functionality for recipes
-var searchForm = document.querySelector('.slidebar.left-slidebar form');
-var searchInput = document.getElementById('searchRecipe');
+function toggleRecipeCard() {
+    var recipeCard = document.getElementById("recipeCard");
+    recipeCard.classList.toggle("open");
+}
 
-searchForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var searchTerm = searchInput.value.toLowerCase();
-    var rows = document.querySelectorAll('.datatable table tr');
+function toggleAddRecipeForm() {
+    var addRecipeForm = document.getElementById("addRecipeForm");
+    addRecipeForm.classList.toggle("show");
+}
 
-    rows.forEach(function (row) {
-        var recipeName = row.cells[0].innerText.toLowerCase();
-        if (recipeName.includes(searchTerm)) {
-            row.style.display = 'table-row';
-        } else {
-            row.style.display = 'none';
+function openRecipeCard(btn) {
+    toggleRecipeCard();
+    var row = btn.closest("tr");
+    var cells = row.querySelectorAll("td");
+    var recipeName = cells[0].innerText;
+    var ingredients = cells[1].innerText;
+    var procedure = cells[2].innerText;
+    var submittedBy = cells[3].innerText;
+
+    document.getElementById("recipeCardContentContainer").innerHTML = `
+                <h2>${recipeName}</h2>
+                <div class="recipe-details"><strong>Ingredients:</strong> ${ingredients}</div>
+                <div class="recipe-details"><strong>Procedure:</strong> ${procedure}</div>
+                <div class="recipe-details"><strong>Submitted by:</strong> <span>${submittedBy}</span></div>
+            `;
+}
+
+function performSearch() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchRecipe");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("recipeTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, hide those that don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0]; // Change index if searching in different columns
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
         }
-    });
-});
+    }
+}

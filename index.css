@@ -63,7 +63,7 @@
  }
 
  .search-button {
-     background-color: #173aff;
+     background-color: #0b2aff;
      color: #fff;
      border: none;
      border-radius: 5px;
@@ -229,7 +229,7 @@
  }
 
  .view-recipe-btn {
-     background-color: #173aff;
+     background-color: #0b2aff;
      color: #fff;
      border: none;
      border-radius: 5px;
@@ -265,7 +265,7 @@
  }
 
  .view-more a:hover {
-     color: #173aff;
+     color: #0b2aff;
  }
 
  .arrow-icon {
@@ -374,7 +374,7 @@
  }
 
  .edit-profile-btn {
-     background-color: #173aff;
+     background-color: #0b2aff;
      color: #fff;
      border: none;
      border-radius: 5px;
@@ -448,7 +448,7 @@
  }
 
  .edit-form button {
-     background-color: #173aff;
+     background-color: #0b2aff;
      color: #fff;
      border: none;
      border-radius: 5px;

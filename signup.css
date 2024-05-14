@@ -54,7 +54,7 @@
 
  .login-container input:focus,
  .login-container select:focus {
-     border-color: #0095ff;
+     border-color: z;
  }
 
  .login-container .create-account-btn {
