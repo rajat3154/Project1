@@ -224,7 +224,6 @@
     .edit-profile-btn:hover {
         background-color: #0b2aff;
     }
-
     .close-btn {
         position: absolute;
         top: 10px;
@@ -232,7 +231,6 @@
         font-size: 20px;
         cursor: pointer;
     }
-
     .sidebar-left {
         position: fixed;
         left: -450px;

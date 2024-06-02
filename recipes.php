@@ -23,11 +23,11 @@
         <button class="search-button">Search</button>
     </div>
     <div class="navbar-links">
-        <a href="index.html" class="nav-link">Home</a>
+        <a href="index1.html" class="nav-link">Home</a>
         <a href="recipes.html" class="nav-link">Recipes</a>
         <a href="#" class="nav-link toggle-sidebar">Profile</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="signup.html" class="nav-link">Signup</a>
+        <a href="logout.php" class="nav-link">Log Out</a>
     </div>
 </nav>
     <div class="form-container">

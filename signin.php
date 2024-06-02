@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_num_rows($result) == 1) {
             
-            header("Location: index.html");
+            header("Location: index1.html");
             exit();
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">

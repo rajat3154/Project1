@@ -6,7 +6,6 @@ function toggleRecipeCard() {
     var recipeCard = document.getElementById("recipeCard");
     recipeCard.classList.toggle("open");
 }
-
 function toggleAddRecipeForm() {
     var addRecipeForm = document.getElementById("addRecipeForm");
     addRecipeForm.classList.toggle("show");
@@ -28,15 +27,12 @@ function openRecipeCard(btn) {
                 <div class="recipe-details"><strong>Submitted by:</strong> <span>${submittedBy}</span></div>
             `;
 }
-
 function performSearch() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchRecipe");
     filter = input.value.toUpperCase();
     table = document.getElementById("recipeTable");
     tr = table.getElementsByTagName("tr");
-
-   
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {

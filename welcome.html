@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavorful Finds - Welcome</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?food');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .slideshow {
+            max-width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+
+        .featured-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background-color: #fff;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            background: linear-gradient(135deg, #0000e3, #f700ff);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .feature p {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .auth-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .auth-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3600e7;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .auth-buttons button:hover {
+            background-color: #ff914d;
+        }
+
+        @keyframes featureAnimation {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .featured-features .feature {
+            animation: featureAnimation 1s ease infinite;
+        }
+
+        @keyframes slideshowAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slideshow img {
+            animation: slideshowAnimation 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to FlavorsOfIndia</h1>
+            <p>Discover the Rich Tapestry of Taste: FlavorsOfIndia - Where Every Flavor Tells a Story!</p>
+            <p>Sign up today and discover culinary delights.</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#desserts">Green Cuisine</a></li>
+                <li><a href="#breakfast">Meat Maverick</a></li>
+                <li><a href="#dinner">Drink Delights</a></li>
+            </ul>
+        </nav>
+        <div class="slideshow">
+            <img class="active" src="https://source.unsplash.com/1600x900/?food" alt="Food Image 1">
+            <img src="https://source.unsplash.com/1600x900/?cooking" alt="Food Image 2">
+            <img src="https://source.unsplash.com/1600x900/?delicious" alt="Food Image 3">
+        </div>
+        <div class="featured-features">
+            <div class="feature" onclick="showCookingSimulator()">
+                <h3>Recipes at your Fingertips</h3>
+                <p>Explore delicious dishes conveniently with recipes at your fingertips, making mealtime a joy!</p>
+            </div>
+            <div class="feature" onclick="showRecipeRecommendations()">
+                <h3>Personalized Recipe Recommendations</h3>
+                <p>Discover recipes that match what you like to eat, making cooking easier and more enjoyable!</p>
+            </div>
+            <div class="feature" onclick="showLiveCookingClasses()">
+                <h3>Share your new dishes or recipes</h3>
+                <p>Show off what you've cooked and inspire fellow food lovers!</p>
+            </div>
+        </div>
+        <div class="auth-buttons">
+            <button onclick="location.href='signup.html'">Sign Up</button>
+            <button onclick="location.href='signin.html'">Sign In</button>
+        </div>
+        <footer>
+            <p>&copy;FlavorsOfIndia. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const images = document.querySelectorAll('.slideshow img');
+        let currentImageIndex = 0;
+
+        function changeImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 5000);
+
+        function showCookingSimulator() {
+            alert('Welcome to the Interactive Cooking Simulator! Begin your virtual culinary journey now.');
+        }
+
+        function showRecipeRecommendations() {
+            alert('Discover a world of personalized recipes tailored just for you!');
+        }
+
+        function showLiveCookingClasses() {
+            alert('Join live cooking classes with expert chefs and enhance your culinary skills in real-time!');
+        }
+    </script>
+</body>
+
+</html>
